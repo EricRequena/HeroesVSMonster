@@ -80,6 +80,34 @@ namespace HeroesVsMonster
                     playAgain = Console.ReadLine().Trim().Equals("1");
 
                     Console.Clear(); // Limpiar la consola para la próxima partida
+
+                    do
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine(msgSlectDifficult);/*Mensaje seleccionar dificultad*/
+                        Console.ForegroundColor = ConsoleColor.White;
+                        selector = Convert.ToInt32(Console.ReadLine());/*Introducir respuesta a pregunta*/
+                        count++;/*contador intentos*/
+                    } while (!Metodos.RangSelectors(selector, 1, 4, 3) || count == 3);
+                    count = 0;/*Reinicio de contador*/
+                    Metodos.PulsaEspacioParaContinuar();
+                    Console.Clear();
+
+                    switch (selector) /*Switch que identifica el nivel*/
+                    {
+                        case 1:
+                            easy = true; /*Si es 1 es facil*/
+                            break;
+                        case 2:
+                            hard = true; /*Si es 2 es dificil*/
+                            break;
+                        case 3:
+                            personalization = true; /*Si es 3 es personalizado*/
+                            break;
+                        case 4:
+                            random = true; /*Si es 4 es aleatorio*/
+                            break;
+                    }
                 }
                 else
                 {

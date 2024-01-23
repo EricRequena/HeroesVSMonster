@@ -93,6 +93,16 @@ namespace HeroesVsMonster
                     Metodos.PulsaEspacioParaContinuar();
                     Console.Clear();
 
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("¡Bienvenido al juego!"); /*Mensaje Bienvenida*/
+                    string[] heroNames = Metodos.GetHeroNamesInput(); /*Funcion nombres*/
+                    /*Asignación nombres en cada espacio de la array*/
+                    string archerName = heroNames[0];
+                    string barbarianName = heroNames[1];
+                    string magicianName = heroNames[2];
+                    string druidName = heroNames[3];
+
+
                     switch (selector) /*Switch que identifica el nivel*/
                     {
                         case 1:

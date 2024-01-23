@@ -50,6 +50,12 @@ namespace HeroesVsMonster
             const int minMonsterAttack = 300, maxMonsterAttack = 400;
             const int minMonsterReduction = 20, maxMonsterReduction = 30;
 
+            const int MinArcherLife = 2000, MinArcherAttack = 300, MinArcherReduction = 35;
+            const int MinBarbarianLife = 3750, MinBarbarianAttack = 250, MinBarbarianReduction = 45;
+            const int MinMagicianLife = 1500, MinMagicianAttack = 400, MinMagicianReduction = 35;
+            const int MinDruidLife = 2500, MinDruidAttack = 120, MinDruidReduction = 40;
+            const int MinMonsterLife = 7000, MinMonsterAttack = 300, MinMonsterReduction = 20;
+
             int count = 0;
             do
             {
@@ -167,6 +173,30 @@ namespace HeroesVsMonster
                         monsterLife = rnd.Next(minMonsterLife, maxMonsterLife + 1);
                         monsterAttack = rnd.Next(minMonsterAttack, maxMonsterAttack + 1);
                         monsterReduction = rnd.Next(minMonsterReduction, maxMonsterReduction + 1);
+                    }
+
+                    if (easy) /*Si es facil*/
+                    {
+                        /*Introducir valores faciles*/
+                        archerLife = MinArcherLife;
+                        archerAttack = MinArcherAttack;
+                        archerReduction = MinArcherReduction;
+
+                        barbarianLife = MinBarbarianLife;
+                        barbarianAttack = MinBarbarianAttack;
+                        barbarianReduction = MinBarbarianReduction;
+
+                        magicianLife = MinMagicianLife;
+                        magicianAttack = MinMagicianAttack;
+                        magicianReduction = MinMagicianReduction;
+
+                        druidLife = MinDruidLife;
+                        druidAttack = MinDruidAttack;
+                        druidReduction = MinDruidReduction;
+
+                        monsterLife = MinMonsterLife;
+                        monsterAttack = MinMonsterAttack;
+                        monsterReduction = MinMonsterReduction;
                     }
                 }
                 else

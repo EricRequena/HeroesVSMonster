@@ -64,5 +64,41 @@
             Console.ForegroundColor = ConsoleColor.Green;
             return minValue; /*Devolver valores*/
         }
+
+        public static int GetRandomValueOrder(int minValue, int maxValue, int[] numeros, int life1, int life2, int life3, int life4) /*Introducir valores aleatorios*/
+        {
+            bool condition = false; /*Condicion de bucle*/
+            Random rnd = new Random();  /*Funcion random*/
+            int randomValue;
+            do
+            {
+                randomValue = rnd.Next(minValue, maxValue + 1); /*Introducir valores aleatorios*/
+
+                if (randomValue == 1 && life1 <= 0)
+                {
+                    randomValue++;
+                }
+                if (randomValue == 2 && life2 <= 0)
+                {
+                    randomValue++;
+                }
+                if (randomValue == 3 && life3 <= 0)
+                {
+                    randomValue++;
+                }
+                if (randomValue == 4 && life4 <= 0)
+                {
+                    randomValue--;
+                }
+                for (int i = 0; i < numeros.Length; i++) /*Bucle de numeros*/
+                {
+                    if (numeros[i] == randomValue)
+                    {
+                        condition = true;
+                    }
+                }
+            } while (!condition);
+            return randomValue; /*Devolver valores*/
+        }
     }
 }

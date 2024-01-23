@@ -299,6 +299,99 @@ namespace HeroesVsMonster
                                             break;
                                     }
                                     Console.WriteLine();
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Console.WriteLine(msgSlector); /*Mensaje de seleccionar accion*/
+                                    Console.WriteLine();
+                                    selector = Convert.ToInt32(Console.ReadLine());
+                                    switch (selector) /*Switch de accion*/
+                                    {
+                                        case 1: /*Atacar*/
+                                            Console.WriteLine("Atacar");
+                                            monsterLife = Metodos.monsterLifeReducction(monsterLife, monsterReduction, heroTurn, archerAttack, barbarianAttack, magicianAttack, druidAttack);
+                                            Console.WriteLine(monsterLife);
+                                            break;
+
+                                        case 2: /*Defender*/
+                                            Console.WriteLine("Defender");
+                                            if (heroTurn == 1)
+                                            {
+                                                isDefendingArcher = true;
+                                            }
+                                            else if (heroTurn == 2)
+                                            {
+                                                isDefendingBarbarian = true;
+                                            }
+                                            else if (heroTurn == 3)
+                                            {
+                                                isDefendingMagician = true;
+                                            }
+                                            else if (heroTurn == 4)
+                                            {
+                                                isDefendingDruid = true;
+                                            }
+                                            break;
+
+                                        case 3: /*Habilidad especial*/
+                                            Console.WriteLine("Habilidad Especial");
+                                            switch (heroTurn)
+                                            {
+                                                case 1:
+                                                    if (InteractiveTurnsArcher <= 0) /*Si la habilidad especial es 0*/
+                                                    {
+                                                        Console.WriteLine("¡La arquera noquea al Monstruo dos turnos!"); /*Mensaje de habilidad especial*/
+                                                        SpecialHabilityArcher = 2; /*Contador de habilidad especial*/
+                                                        InteractiveTurnsArcher = 5; /*Contador de habilidad especial*/
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("¡La arquera no puede usar su habilidad especial!"); /*Mensaje de habilidad especial*/
+                                                    }
+
+                                                    break;
+                                                case 2:
+                                                    if (InteractiveTurnsBarbarian <= 0) /*Si la habilidad especial es 0*/
+                                                    {
+                                                        Console.WriteLine("¡El bárbaro se enfada!"); /*Mensaje de habilidad especial*/
+                                                        SpecialHabilityBarbarian = 2; /*Contador de habilidad especial*/
+                                                        InteractiveTurnsBarbarian = 5; /*Contador de habilidad especial*/
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("¡El bárbaro no puede usar su habilidad especial!"); /*Mensaje de habilidad especial*/
+                                                    }
+                                                    break;
+
+                                                case 3:
+                                                    if (InteractiveTurnsMagician <= 0) /*Si la habilidad especial es 0*/
+                                                    {
+                                                        Console.WriteLine("¡La maga dispara una bola de fuego que hace 3 veces su ataque!"); /*Mensaje de habilidad especial*/
+                                                        monsterLife = Metodos.monsterLifeReducction(monsterLife, monsterReduction, heroTurn, magicianAttack * 3, barbarianAttack, magicianAttack, druidAttack); /*Funcion de habilidad especial del mago*/
+                                                        Console.WriteLine($"Nueva vida del monstruo: {monsterLife}"); /*Mostrar vida del monstruo*/
+                                                        InteractiveTurnsMagician = 5; /*Contador de habilidad especial*/
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("¡La maga no puede usar su habilidad especial!"); /*Mensaje de habilidad especial*/
+                                                    }
+                                                    break;
+                                                case 4:
+                                                    if (InteractiveTurnsDruid <= 0) /*Si la habilidad especial es 0*/
+                                                    {
+                                                        Console.WriteLine("¡El druida cura 500 de vida a todos los héroes!"); /*Mensaje de habilidad especial*/
+                                                        archerLife = Metodos.DruiSpecialHability(archerLife); /*Funcion de habilidad especial del druida*/
+                                                        barbarianLife = Metodos.DruiSpecialHability(barbarianLife);
+                                                        magicianLife = Metodos.DruiSpecialHability(magicianLife);
+                                                        druidLife = Metodos.DruiSpecialHability(druidLife);
+                                                        InteractiveTurnsDruid = 5; /*Contador de habilidad especial*/
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("¡El druida no puede usar su habilidad especial!"); /*Mensaje de habilidad especial*/
+                                                    }
+                                                    break;
+                                            }
+                                            break;
+                                    }
                                 }
                             }
 

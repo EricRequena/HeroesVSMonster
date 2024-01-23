@@ -100,5 +100,37 @@
             } while (!condition);
             return randomValue; /*Devolver valores*/
         }
+        public static int DruiSpecialHability(int life) /*Habilidad especial del druida*/
+        {
+            if (life <= 0) /*Si la vida es menor o igual a 0*/
+            {
+                return 0; /*Devolver 0*/
+            }
+            else /*Si la vida es mayor a 0*/
+            {
+                return life + 500; /*Sumar 500 de vida*/
+            }
+        }
+        public static int monsterLifeReducction(int monsterLife, int monterReduction, int heroTurn, int ArcherAttack, int BarbarianAttack, int MagicianAttack, int DruidAttack)
+        {
+            int especialAttack = GetRandomValue(1, 101);
+
+            int heroAttack = CalcAtack(heroTurn, ArcherAttack, BarbarianAttack, MagicianAttack, DruidAttack);
+            int damage = CalculateDamage(heroAttack, monterReduction);
+
+            if (especialAttack <= 5)
+            {
+                damage = 0;
+            }
+            else if (especialAttack <= 15 && especialAttack > 5)
+            {
+                damage *= 2;
+            }
+
+            // Asegurarse de que la vida del monstruo no sea negativa
+            int newMonsterLife = Math.Max(0, monsterLife - damage);
+
+            return newMonsterLife;
+        }
     }
 }

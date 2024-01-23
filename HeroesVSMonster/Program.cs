@@ -118,6 +118,32 @@ namespace HeroesVsMonster
                             random = true; /*Si es 4 es aleatorio*/
                             break;
                     }
+
+                    Console.Clear();
+                    if (personalization) /*Si es personalizado*/
+                    {
+                        /*Introducir valores personalizados*/
+                        archerLife = Metodos.GetUserInputWithValidation($"Ingrese la vida de la arquera ({minArcherLife} - {maxArcherLife}):", minArcherLife, maxArcherLife);
+                        archerAttack = Metodos.GetUserInputWithValidation($"Ingrese el ataque de la arquera ({minArcherAttack} - {maxArcherAttack}):", minArcherAttack, maxArcherAttack);
+                        archerReduction = Metodos.GetUserInputWithValidation($"Ingrese la reducción de daño de la arquera ({minArcherReduction}-{maxArcherReduction}) (%):", minArcherReduction, maxArcherReduction);
+                        Console.Clear();
+                        barbarianLife = Metodos.GetUserInputWithValidation($"Ingrese la vida del bárbaro ({minBarbarianLife} - {maxBarbarianLife}):", minBarbarianLife, maxBarbarianLife);
+                        barbarianAttack = Metodos.GetUserInputWithValidation($"Ingrese el ataque del bárbaro ({minBarbarianAttack} - {maxBarbarianAttack}):", minBarbarianAttack, maxBarbarianAttack);
+                        barbarianReduction = Metodos.GetUserInputWithValidation($"Ingrese la reducción de daño del bárbaro ({minBarbarianReduction}-{maxBarbarianReduction}) (%):", minBarbarianReduction, maxBarbarianReduction);
+                        Console.Clear();
+                        magicianLife = Metodos.GetUserInputWithValidation($"Ingrese la vida de la maga ({minMagicianLife} - {maxMagicianLife}):", minMagicianLife, maxMagicianLife);
+                        magicianAttack = Metodos.GetUserInputWithValidation($"Ingrese el ataque de la maga ({minMagicianAttack} - {maxMagicianAttack}):", minMagicianAttack, maxMagicianAttack);
+                        magicianReduction = Metodos.GetUserInputWithValidation($"Ingrese la reducción de daño de la maga ({minMagicianReduction}-{maxMagicianReduction}) (%):", minMagicianReduction, maxMagicianReduction);
+                        Console.Clear();
+                        druidLife = Metodos.GetUserInputWithValidation($"Ingrese la vida del druida ({minDruidLife} - {maxDruidLife}):", minDruidLife, maxDruidLife);
+                        druidAttack = Metodos.GetUserInputWithValidation($"Ingrese el ataque del druida ({minDruidAttack} - {maxDruidAttack}):", minDruidAttack, maxDruidAttack);
+                        druidReduction = Metodos.GetUserInputWithValidation($"Ingrese la reducción de daño del druida ({minDruidReduction}-{maxDruidReduction}) (%):", minDruidReduction, maxDruidReduction);
+                        Console.Clear();
+                        monsterLife = Metodos.GetUserInputWithValidation($"Ingrese la vida del monstruo ({minMonsterLife} - {maxMonsterLife}):", minMonsterLife, maxMonsterLife);
+                        monsterAttack = Metodos.GetUserInputWithValidation($"Ingrese el ataque del monstruo ({minMonsterAttack} - {maxMonsterAttack}):", minMonsterAttack, maxMonsterAttack);
+                        monsterReduction = Metodos.GetUserInputWithValidation($"Ingrese la reducción de daño del monstruo ({minMonsterReduction}-{maxMonsterReduction}) (%):", minMonsterReduction, maxMonsterReduction);
+                        Console.Clear();
+                    }
                 }
                 else
                 {

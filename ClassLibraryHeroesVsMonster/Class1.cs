@@ -40,5 +40,29 @@
 
             return heroNames; /*Devolver nombres*/
         }
+        public static int GetUserInputWithValidation(string prompt, int minValue, int maxValue) /*Introducir valores personalizados*/
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            int userInput; /*Introducir valores*/
+            int attempts = 0; /*Contador de intentos*/
+            int MAX_ATTEMPTS = 3; /*Numero maximo de intentos*/
+            do
+            {
+                Console.WriteLine(prompt); /*Mensaje de introducir valores*/
+                Console.ForegroundColor = ConsoleColor.White;
+                if (int.TryParse(Console.ReadLine(), out userInput) && RangSelectors(userInput, minValue, maxValue, MAX_ATTEMPTS)) /*Funcion que muestra si esta dentro del rango*/
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    return userInput; /*Devolver valores*/
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Entrada no válida. Debe ser un número entre {minValue} y {maxValue}.");
+                attempts++;
+            } while (attempts < MAX_ATTEMPTS); /*Si se exceden los intentos*/
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Se excedieron los intentos. Estableciendo el valor predeterminado: {minValue}");
+            Console.ForegroundColor = ConsoleColor.Green;
+            return minValue; /*Devolver valores*/
+        }
     }
 }

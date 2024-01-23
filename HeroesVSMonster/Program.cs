@@ -228,6 +228,7 @@ namespace HeroesVsMonster
                         monsterLife = MaxMonsterLife;
                         monsterAttack = MaxMonsterAttack;
                         monsterReduction = MaxMonsterReduction;
+                    }
 
                         int torn = 1; /*Contador de turnos*/
                         bool isDefendingArcher = false; /*Defensa de cada heroe*/
@@ -240,6 +241,7 @@ namespace HeroesVsMonster
                         int InteractiveTurnsBarbarian = 0;
                         int InteractiveTurnsMagician = 0;
                         int InteractiveTurnsDruid = 0;
+                        
 
 
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -431,7 +433,7 @@ namespace HeroesVsMonster
                             Metodos.PulsaEspacioParaContinuar();
 
                         }
-                    }
+                    
                 }
                 else
                 {

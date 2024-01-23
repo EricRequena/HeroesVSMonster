@@ -292,7 +292,48 @@ namespace TestProjectHeroesVsMonster
             Assert.IsFalse(result < 0);
         }
 
+        [TestMethod]
 
+        public void OrderLife_WhenCalledWithDifferentLifeValues_ShouldOrderCorrectly()
+        {
+            // Arrange
+            int archerLife = 200;
+            int barbarianLife = 100;
+            int magicianLife = 150;
+            int druidLife = 120;
 
+            // Act
+            Metodos.OrderLife(archerLife, barbarianLife, magicianLife, druidLife);
+        }
+        [TestMethod]
+        public void GetHeroNamesInput_WhenValidInputProvided_ReturnsArrayWithFourNames()
+        {
+            // Arrange
+            string[] expectedHeroNames = { "Hero1", "Hero2", "Hero3", "Hero4" };
+            string inputString = string.Join(" ", expectedHeroNames);
+            StringReader stringReader = new StringReader(inputString);
+            Console.SetIn(stringReader);
+
+            // Act
+            string[] actualHeroNames = Metodos.GetHeroNamesInput();
+
+            // Assert
+            CollectionAssert.AreEqual(expectedHeroNames, actualHeroNames);
+        }
+        [TestMethod]
+        public void GetUserInputWithValidation_WhenValidInputProvided_ReturnsUserInput()
+        {
+            // Arrange
+            int expectedUserInput = 42;
+            string inputString = expectedUserInput.ToString();
+            StringReader stringReader = new StringReader(inputString);
+            Console.SetIn(stringReader);
+
+            // Act
+            int actualUserInput = Metodos.GetUserInputWithValidation("Enter a number:", 1, 100);
+
+            // Assert
+            Assert.AreEqual(expectedUserInput, actualUserInput);
+        }
     }
 }

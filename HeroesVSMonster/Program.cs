@@ -433,7 +433,19 @@ namespace HeroesVsMonster
                             Metodos.PulsaEspacioParaContinuar();
 
                         }
-                    
+                    if (monsterLife <= 0) /*Si la vida del monstruo es menor o igual a 0*/
+                    {
+                        Console.WriteLine("¡Los héroes han ganado!"); /*Mensaje de victoria*/
+                    }
+                    else /*Si la vida del monstruo es mayor a 0*/
+                    {
+                        Console.WriteLine("¡El monstruo ha ganado!"); /*Mensaje de derrota*/
+                    }
+
+                    Console.WriteLine("¿Quieres volver a jugar? (Sí: 1 / No: 0)");
+                    playAgain = Console.ReadLine().Trim().Equals("1");
+
+                    Console.Clear(); // Limpiar la consola para la próxima partida
                 }
                 else
                 {

@@ -144,6 +144,30 @@ namespace HeroesVsMonster
                         monsterReduction = Metodos.GetUserInputWithValidation($"Ingrese la reducción de daño del monstruo ({minMonsterReduction}-{maxMonsterReduction}) (%):", minMonsterReduction, maxMonsterReduction);
                         Console.Clear();
                     }
+                    if (random) /*Si es aleatorio*/
+                    {
+                        Random rnd = new Random(); /*Funcion random*/
+                        /*Introducir valores aleatorios*/
+                        archerLife = rnd.Next(minArcherLife, maxArcherLife + 1);
+                        archerAttack = rnd.Next(minArcherAttack, maxArcherAttack + 1);
+                        archerReduction = rnd.Next(minArcherReduction, maxArcherReduction + 1);
+
+                        barbarianLife = rnd.Next(minBarbarianLife, maxBarbarianLife + 1);
+                        barbarianAttack = rnd.Next(minBarbarianAttack, maxBarbarianAttack + 1);
+                        barbarianReduction = rnd.Next(minBarbarianReduction, maxBarbarianReduction + 1);
+
+                        magicianLife = rnd.Next(minMagicianLife, maxMagicianLife + 1);
+                        magicianAttack = rnd.Next(minMagicianAttack, maxMagicianAttack + 1);
+                        magicianReduction = rnd.Next(minMagicianReduction, maxMagicianReduction + 1);
+
+                        druidLife = rnd.Next(minDruidLife, maxDruidLife + 1);
+                        druidAttack = rnd.Next(minDruidAttack, maxDruidAttack + 1);
+                        druidReduction = rnd.Next(minDruidReduction, maxDruidReduction + 1);
+
+                        monsterLife = rnd.Next(minMonsterLife, maxMonsterLife + 1);
+                        monsterAttack = rnd.Next(minMonsterAttack, maxMonsterAttack + 1);
+                        monsterReduction = rnd.Next(minMonsterReduction, maxMonsterReduction + 1);
+                    }
                 }
                 else
                 {

@@ -228,6 +228,45 @@ namespace HeroesVsMonster
                         monsterLife = MaxMonsterLife;
                         monsterAttack = MaxMonsterAttack;
                         monsterReduction = MaxMonsterReduction;
+
+                        int torn = 1; /*Contador de turnos*/
+                        bool isDefendingArcher = false; /*Defensa de cada heroe*/
+                        bool isDefendingBarbarian = false;
+                        bool isDefendingMagician = false;
+                        bool isDefendingDruid = false;
+                        int SpecialHabilityBarbarian = 2; /*Habilidad especial*/
+                        int SpecialHabilityArcher = 2;
+                        int InteractiveTurnsArcher = 0; /*Turnos de habilidad especial*/
+                        int InteractiveTurnsBarbarian = 0;
+                        int InteractiveTurnsMagician = 0;
+                        int InteractiveTurnsDruid = 0;
+
+
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+                        Console.WriteLine("¡Comienza la Batalla!"); /*Mensaje de inicio de batalla*/
+                        while (monsterLife > 0 && (archerLife > 0 || barbarianLife > 0 || druidLife > 0 || magicianLife > 0)) /*Bucle de batalla*/
+                        {
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            SpecialHabilityBarbarian--; /*Contador de habilidad especial*/
+                            SpecialHabilityArcher--; /*Contador de habilidad especial*/
+                            Console.WriteLine($"turno: {torn}"); /*Mostrar turno*/
+                            Console.WriteLine();
+                            int heroTurn; /*Turno de cada heroe*/
+                            int[] numeros = { 1, 2, 3, 4 }; /*Array de numeros para el random*/
+                            int DethCount = 4;
+                 
+
+
+                            torn++; /*Aumentar turno*/
+                            InteractiveTurnsArcher--; /*Contador de habilidad especial*/
+                            InteractiveTurnsBarbarian--; /*Contador de habilidad especial*/
+                            InteractiveTurnsMagician--; /*Contador de habilidad especial*/
+                            InteractiveTurnsDruid--; /*Contador de habilidad especial*/
+                            Metodos.PulsaEspacioParaContinuar();
+
+                        }
                     }
                 }
                 else

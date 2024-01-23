@@ -256,10 +256,55 @@ namespace HeroesVsMonster
                             int heroTurn; /*Turno de cada heroe*/
                             int[] numeros = { 1, 2, 3, 4 }; /*Array de numeros para el random*/
                             int DethCount = 4;
-                 
+                            if (archerLife <= 0)
+                            {
+                                DethCount--;
+                            }
+                            if (barbarianLife <= 0)
+                            {
+                                DethCount--;
+                            }
+                            if (magicianLife <= 0)
+                            {
+                                DethCount--;
+                            }
+                            if (druidLife <= 0)
+                            {
+                                DethCount--;
+                            }
+                            for (int i = 0; i < DethCount; i++) /*Bucle de turnos*/
+                            {
+                                if (monsterLife > 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    heroTurn = Metodos.GetRandomValueOrder(1, 4, numeros, archerLife, barbarianLife, magicianLife, druidLife);/*Funcion random de turnos*/
+
+                                    switch (heroTurn)/*Switch de turnos*/
+                                    {
+                                        case 1:
+                                            numeros[0] = 5; /*Asignar numero para que no se repita*/
+                                            Console.WriteLine($"Turno de l'arqura {archerName}"); /*Mostrar nombre de heroe*/
+                                            break;
+                                        case 2:
+                                            numeros[1] = 6;
+                                            Console.WriteLine($"Turno del barbar {barbarianName}");
+                                            break;
+                                        case 3:
+                                            numeros[2] = 7;
+                                            Console.WriteLine($"Turno de la maga {magicianName}");
+                                            break;
+                                        case 4:
+                                            numeros[3] = 8;
+                                            Console.WriteLine($"Turno del druida {druidName}");
+                                            break;
+                                    }
+                                    Console.WriteLine();
+                                }
+                            }
 
 
-                            torn++; /*Aumentar turno*/
+
+                                    torn++; /*Aumentar turno*/
                             InteractiveTurnsArcher--; /*Contador de habilidad especial*/
                             InteractiveTurnsBarbarian--; /*Contador de habilidad especial*/
                             InteractiveTurnsMagician--; /*Contador de habilidad especial*/

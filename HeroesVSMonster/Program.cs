@@ -151,4 +151,5 @@ namespace HeroesVsMonster
                 }
             } while (playAgain);
         }
+    }
 }

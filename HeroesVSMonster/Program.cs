@@ -392,12 +392,38 @@ namespace HeroesVsMonster
                                             }
                                             break;
                                     }
+                                    Metodos.PulsaEspacioParaContinuar();
                                 }
+                            }
+                            if (monsterLife > 0)
+                            {
+                                Console.WriteLine("Monster's Turn (5)"); /*Turno del monstruo*/
+                                if (SpecialHabilityBarbarian <= 0) /*Si la habilidad especial es 0*/
+                                {
+                                    isDefendingBarbarian = false; /*Dejar de defender*/
+                                }
+                                if (SpecialHabilityArcher <= 0)
+                                {
+                                    if (archerLife > 0)
+                                        archerLife = Metodos.heroLifeReduction(archerLife, isDefendingArcher, monsterAttack, archerReduction, archerName); /*Funcion de reduccion de vida de cada heroe*/
+                                    if (barbarianLife > 0)
+                                        barbarianLife = Metodos.heroLifeReduction(barbarianLife, isDefendingBarbarian, monsterAttack, barbarianReduction, barbarianName);
+                                    if (magicianLife > 0)
+                                        magicianLife = Metodos.heroLifeReduction(magicianLife, isDefendingMagician, monsterAttack, magicianReduction, magicianName);
+                                    if (druidLife > 0)
+                                        druidLife = Metodos.heroLifeReduction(druidLife, isDefendingDruid, monsterAttack, druidReduction, druidName);
+                                }
+
+                                /*ordena la vida de los heroes sin usar array*/
+
+
+                                Metodos.OrderLife(archerLife, barbarianLife, magicianLife, druidLife); /*Funcion de ordenar vida de los heroes*/
+
                             }
 
 
 
-                                    torn++; /*Aumentar turno*/
+                            torn++; /*Aumentar turno*/
                             InteractiveTurnsArcher--; /*Contador de habilidad especial*/
                             InteractiveTurnsBarbarian--; /*Contador de habilidad especial*/
                             InteractiveTurnsMagician--; /*Contador de habilidad especial*/

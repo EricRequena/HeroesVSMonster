@@ -132,5 +132,133 @@
 
             return newMonsterLife;
         }
+
+        public static void OrderLife(int archerLife, int barbarianLife, int magicianLife, int druidLife)
+        {
+            int a = archerLife;
+            int b = barbarianLife;
+            int c = magicianLife;
+            int d = druidLife;
+
+            if (a > b)
+            {
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+
+            if (b > c)
+            {
+                int temp = b;
+                b = c;
+                c = temp;
+            }
+
+            if (c > d)
+            {
+                int temp = c;
+                c = d;
+                d = temp;
+            }
+
+            if (a > b)
+            {
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+
+            if (b > c)
+            {
+                int temp = b;
+                b = c;
+                c = temp;
+            }
+
+            if (a > b)
+            {
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+
+            Console.WriteLine("La vida restante de los héroes ({0}, {1}, {2}, {3}) ordenada de forma ascendente es: {4}, {5}, {6}, {7}", "Arquera", "Bárbaro", "Maga", "Druida", a, b, c, d);
+        }
+        public static int GetRandomValue(int minValue, int maxValue) /*Introducir valores aleatorios*/
+        {
+            Random rnd = new Random(); /*Funcion random*/
+            return rnd.Next(minValue, maxValue + 1); /*Devolver valores*/
+        }
+
+
+        public static int CalculateDamage(int heroAttack, int monsterReduction)
+        {
+            int damage = heroAttack - (monsterReduction * heroAttack / 100);
+            return damage > 0 ? damage : 0;
+        }
+        public static int CalcAtack(int heroTurn, int archerAttack, int barbarianAttack, int magicianAttack, int druidAttack)
+        {
+            switch (heroTurn)
+            {
+                case 1:
+                    return archerAttack;
+                case 2:
+                    return barbarianAttack;
+                case 3:
+                    return magicianAttack;
+                case 4:
+                    return druidAttack;
+                default:
+                    return 0;
+            }
+        }
+
+        public static int heroLifeReduction(int heroLife, bool isDefending, int monsterAttack, int Reduction, string name)
+        {
+            if (heroLife <= 0)
+            {
+                Console.WriteLine();
+                return 0;
+            }
+            else
+            {
+                int especialAttack = GetRandomValue(1, 101);
+
+                if (isDefending)
+                {
+                    Console.WriteLine($"¡El héroe {name} está defendiendo y no recibe daño!");
+                    Console.WriteLine();
+                    return heroLife;
+                }
+
+                int damage = CalculateDamage(monsterAttack, Reduction);
+
+                if (especialAttack <= 5)
+                {
+                    Console.WriteLine("¡El monstruo falla su ataque especial!");
+                    damage = 0;
+                }
+                else if (especialAttack <= 15 && especialAttack > 5)
+                {
+                    Console.WriteLine("¡El monstruo realiza un ataque especial!");
+                    damage *= 2;
+                }
+
+                Console.WriteLine($"Daño al héroe {name}: {damage}");
+                int newHeroLife = heroLife - damage;
+
+                if (newHeroLife < 0)
+                {
+                    newHeroLife = 0;
+                    Console.WriteLine($"¡La vida del héroe {name} llegó a cero!");
+                }
+
+                Console.WriteLine($"Vida actual del héroe {name}: {newHeroLife}");
+                Console.WriteLine();
+                return newHeroLife;
+            }
+        }
+
+
     }
 }

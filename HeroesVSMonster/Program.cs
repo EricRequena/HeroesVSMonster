@@ -56,6 +56,13 @@ namespace HeroesVsMonster
             const int MinDruidLife = 2500, MinDruidAttack = 120, MinDruidReduction = 40;
             const int MinMonsterLife = 7000, MinMonsterAttack = 300, MinMonsterReduction = 20;
 
+            const int MaxArcherLife = 1500, MaxArcherAttack = 200, MaxArcherReduction = 25;
+            const int MaxBarbarianLife = 3000, MaxBarbarianAttack = 150, MaxBarbarianReduction = 35;
+            const int MaxMagicianLife = 1100, MaxMagicianAttack = 300, MaxMagicianReduction = 20;
+            const int MaxDruidLife = 2000, MaxDruidAttack = 70, MaxDruidReduction = 25;
+            const int MaxMonsterLife = 10000, MaxMonsterAttack = 400, MaxMonsterReduction = 30;
+
+
             int count = 0;
             do
             {
@@ -197,6 +204,30 @@ namespace HeroesVsMonster
                         monsterLife = MinMonsterLife;
                         monsterAttack = MinMonsterAttack;
                         monsterReduction = MinMonsterReduction;
+                    }
+
+                    if (hard) /*Si es dificil*/
+                    {
+                        /*Introducir valores dificiles*/
+                        archerLife = MaxArcherLife;
+                        archerAttack = MaxArcherAttack;
+                        archerReduction = MaxArcherReduction;
+
+                        barbarianLife = MaxBarbarianLife;
+                        barbarianAttack = MaxBarbarianAttack;
+                        barbarianReduction = MaxBarbarianReduction;
+
+                        magicianLife = MaxMagicianLife;
+                        magicianAttack = MaxMagicianAttack;
+                        magicianReduction = MaxMagicianReduction;
+
+                        druidLife = MaxDruidLife;
+                        druidAttack = MaxDruidAttack;
+                        druidReduction = MaxDruidReduction;
+
+                        monsterLife = MaxMonsterLife;
+                        monsterAttack = MaxMonsterAttack;
+                        monsterReduction = MaxMonsterReduction;
                     }
                 }
                 else
